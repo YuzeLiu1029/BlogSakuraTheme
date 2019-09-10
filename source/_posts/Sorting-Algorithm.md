@@ -3,8 +3,8 @@ title: Sorting_Algorithm
 author: Liu Yuze
 avatar: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/avatar.jpg
 authorLink: liuyuze.site
-authorAbout: CYBERPUNK深得我心
-authorDesc: CYBERPUNK深得我心
+authorAbout: 好少年光芒万丈
+authorDesc: 好少年光芒万丈
 categories: 技术
 mathjax: true
 comments: true

@@ -3,8 +3,8 @@ title: Certificate
 author: Yuze
 avatar: 'https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/avatar.jpg'
 authorLink: liuyuze.site
-authorAbout: CYBERPUNK
-authorDesc: CYBERPUNK
+authorAbout: 好少年光芒万丈
+authorDesc: 好少年光芒万丈
 comments: true
 date: 2019-09-10 15:52:40
 categories: 转载

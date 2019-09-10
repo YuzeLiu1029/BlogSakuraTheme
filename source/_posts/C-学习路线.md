@@ -3,8 +3,8 @@ title: C++学习路线
 author: Yuze
 avatar: 'https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/avatar.jpg'
 authorLink: 'https://www.cnblogs.com/llguanli/p/8370923.html'
-authorAbout: CYBERPUNK
-authorDesc: CYBERPUNK
+authorAbout: 好少年光芒万丈
+authorDesc: 好少年光芒万丈
 categories: 转载
 comments: true
 date: 2019-09-10 09:58:30
