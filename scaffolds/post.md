@@ -1,15 +1,16 @@
 ---
 title: {{ title }}
 date: {{ date }}
-author: hojun
-avatar: https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg
-authorLink: hojun.cn
-authorAbout: 一个好奇的人
-authorDesc: 一个好奇的人
+author: Liu Yuze
+avatar: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/avatar.jpg
+authorLink: liuyuze.site
+authorAbout: 好少年光芒万丈
+authorDesc: 好少年光芒万丈
 categories: 技术
 comments: true
-tags: 
-keywords: 
-description: 
-photos: 
+tags:
+keywords:
+description:
+photos:
+mathjax: true
 ---
