@@ -1021,6 +1021,7 @@ a {
     transition:color .2s ease-out,border .2s ease-out,opacity .2s ease-out
 }
 a:hover,a:focus,a:active {
+    animation: shake-it .5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
     color:orange
 }
 a:focus {
@@ -1383,6 +1384,7 @@ a:hover,a:active {
     font-weight:400
 }
 .site-title a:hover {
+    animation: shake-it .5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
     color:orange
 }
 .site-title img {
@@ -1479,6 +1481,7 @@ a:hover,a:active {
     color:#666
 }
 .site-top ul li a:hover {
+    animation: shake-it .5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
     color:orange
 }
 .site-top ul li a:after {
@@ -1670,6 +1673,7 @@ a:hover,a:active {
     color:#504e4e
 }
 .entry-title a:hover {
+    animation: shake-it .5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
     color:orange
 }
 .p-time {
@@ -2138,6 +2142,7 @@ i.iconfont.hotpost {
     text-decoration:underline dotted rgba(0,0,0,.1)
 }
 .entry-content a:hover {
+    animation: shake-it .5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
     color:orange;
     text-decoration:underline orange
 }
@@ -2322,6 +2327,7 @@ h1.page-title.mb- {
     margin-right:5px
 }
 .post-tags a:hover {
+    animation: shake-it .5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
     color:orange
 }
 .post-tags i {
@@ -3954,7 +3960,7 @@ li.feature-2 {
         top: 98px !important;
     }
     .top-social_v2 li {
-        margin-right: 0px !important; 
+        margin-right: 0px !important;
         cursor: url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cursor/ayuda.cur),auto !important;
     }
 }
@@ -4796,6 +4802,7 @@ i.iconfont.down {
         display:none
     }
     .links ul li:hover .sitename {
+        animation: shake-it .5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
         color:orange
     }
     .links ul li:hover .linkdes {
@@ -7836,4 +7843,19 @@ td.hljs-ln-numbers {
 
 @media(max-width:1200px) {
     .toc {display: none;}
+}
+
+@keyframes shake-it {
+    0% {
+        text-shadow: 0 0 rgba(0, 255, 255, .5), 0 0 rgba(255, 0, 0, .5);
+    }
+    25% {
+        text-shadow: -2px 0 rgba(0, 255, 255, .5), 2px 0 rgba(255, 0, 0, .5);
+    }
+    50% {
+        text-shadow: -5px 0 rgba(0, 255, 255, .5), 3px 0 rgba(255, 0, 0, .5);
+    }
+    100% {
+        text-shadow: 3px 0 rgba(0, 255, 255, .5), 5px 0 rgba(255, 0, 0, .5);
+    }
 }
