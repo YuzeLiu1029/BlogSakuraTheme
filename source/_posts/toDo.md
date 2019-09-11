@@ -21,7 +21,8 @@ photos: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/123843.jpg
 - [x] 引入文字抖动炫彩特效。
 - [x] 解决网页刷新造成valine评论系统消失以及Mathjax渲染数学公式失败。
 
-## 待办
+## 待办或Issue
 - [ ] 在图片页面引入照片墙。
+- [ ] 已知hexo-tag-Aplayer使用MetingJS，需要等待 24 小时后缓存刷新才能同步歌单，所以在网易云音乐歌单更新后Aplayer不能立即更新。https://github.com/metowolf/MetingJS/issues/13
 
 
