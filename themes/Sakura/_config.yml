@@ -98,7 +98,7 @@ movies:
     name: dbtw.mp4
 
 aplayer:
-  id: 2969622879
+  id: 2975629886
   server: netease
   type: playlist
   fixed: true
