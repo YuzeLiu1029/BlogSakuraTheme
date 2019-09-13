@@ -20,6 +20,7 @@ photos: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/123843.jpg
 - [x] 增加看板娘，pjax局部加载不加载版娘。
 - [x] 引入文字抖动炫彩特效。
 - [x] 解决网页刷新造成valine评论系统消失以及Mathjax渲染数学公式失败。
+- [x] 完成Valine-Admin的配置，可以通过邮件取得评论更新，并在点击邮件链接后可以直接跳转到该评论的位置。
 
 ## 待办或Issue
 - [ ] 在图片页面引入照片墙。
