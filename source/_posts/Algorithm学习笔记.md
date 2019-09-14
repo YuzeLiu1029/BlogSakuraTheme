@@ -19,4 +19,5 @@ photos: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/algorithm_I.png
 ---
 本文系Cousera Algorithm I学习笔记， 课程网址为：https://www.coursera.org/learn/algorithms-part1/home/welcome
 # Union-Find
+Introduce the union–find data type and consider several implementations (quick find, quick union, weighted quick union, and weighted quick union with path compression).Finally, apply the union–find data type to the percolation problem from physical chemistry.
 
