@@ -212,12 +212,87 @@ Given a social network containing $n$ members and a log file containing $m$ time
     }
 ```
 ### Question 2
-Union-find with specific canonical element. Add a method 𝚏𝚒𝚗𝚍() to the union-find data type so that 𝚏𝚒𝚗𝚍(𝚒) returns the largest element in the connected component containing ii. The operations, 𝚞𝚗𝚒𝚘𝚗(), 𝚌𝚘𝚗𝚗𝚎𝚌𝚝𝚎𝚍(), and 𝚏𝚒𝚗𝚍() should all take logarithmic time or better. 
+Union-find with specific canonical element. Add a method 𝚏𝚒𝚗𝚍() to the union-find data type so that 𝚏𝚒𝚗𝚍(𝚒) returns the largest element in the connected component containing i. The operations, 𝚞𝚗𝚒𝚘𝚗(), 𝚌𝚘𝚗𝚗𝚎𝚌𝚝𝚎𝚍(), and 𝚏𝚒𝚗𝚍() should all take logarithmic time or better. 
 For example, if one of the connected components is $\{1, 2, 6, 9\}$, then the 𝚏𝚒𝚗𝚍() method should return $9$ for each of the four elements in the connected components.
+
+```java
+    class solution{
+        private int[] id;
+        private int[] maxElement;
+        public union_find(int N){
+            for(int i = 0; i < N; i++){
+                id[i] = i;
+                maxElement[i] = i;
+            }
+        }
+        private int root(int i){
+            while(i != id[i]){
+                id[i] = id[id[i]];
+                i = id[i];
+            }
+            return i;
+        }
+        public int connected(int p, int q){
+            return root(p) == root(q);
+        }
+        public void union(int p, int q){
+            p_id = root(p);
+            q_id = root(q);
+            id[p_id] = q_id;
+            maxElement[p_id] = Math.max(maxElement[p_id], maxElement[q_id]);
+            maxElement[q_id] = maxElement[p_id];
+        }
+        public int find(int p){
+            return maxElement[p];
+        }
+    }
+```
 
 ### Question 3
 Successor with delete. Given a set of $n$ integers $S = \{ 0, 1, ... , n-1 \}$ and a sequence of requests of the following form:
 Remove $x$ from $S$
-Find the successor of xx: the smallest $y$ in $S$ such that $y \ge x$.
+Find the successor of $x$: the smallest $y$ in $S$ such that $y \ge x$.
 design a data type so that all operations (except construction) take logarithmic time or better in the worst case.
+
+```java
+class Solution{
+    public class Node{
+        int val;
+        Node next;
+        Node prev;
+        Node(int val){
+            this.val = val;
+            next = null;
+            prev = null;
+        }
+    }
+    Node dummy;
+    public void construct(int n){
+        dummy = new Node(-1);
+        Node cur = new Node(0);
+        cur.prev= dummy;
+        dummy.next = cur;
+        Node previous = cur;
+        for(int i = 1; i < n-1; i++){
+            cur = new Node(i);
+            cur.prev = previous;
+            previous.next = cur;
+            previous = cur;
+        }
+    }
+    
+    private int remove(int i){
+        Node cur = dummy.next;
+        while(cur != null){
+            if(cur.val == i){
+                cur.prev.next = cur.next;
+                cur.next.prev = cur.prev;
+                break;
+            }
+            cur = cur.next;
+        }
+        return cur.next.val;
+    }
+}
+```
 
