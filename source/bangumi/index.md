@@ -21,4 +21,18 @@ bangumis:
     jp: Killing Eve S2
     time: 2019-09-01 SUN.
     desc: 第二季总体来说水准并无下滑，Villanelle最后一枪绝对是为了救Eve。高科技公司的变态总裁是这一季的亮点，金丝眼镜算是很好的致敬斯文败类。全季高潮来自剑桥小哥早起的的惊人一句，"Oh by the way, thanks for the threesome last night."很好很强大。
+  - img: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/movies/f1.png
+    title: FLEABAG Season1
+    status: 已追完
+    progress: 100
+    jp: FLEABAG S1
+    time: 2019-09-25 WED.
+    desc: 你热闹万分，你孤身一人。你开怀大笑，你泪流成河。你若无其事，你跌跌撞撞。你平静无比，你歇斯底里。你假装光芒万丈，你内心一片废墟。
+  - img: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/movies/f2.png
+    title: FLEABAG Season2
+    status: 已追完
+    progress: 100
+    jp: FLEABAG S2
+    time: 2019-09-25 WED.
+    desc: 神父发现她神游的踪迹，在这人世间有人懂你简直就要哭出来了.莫娘追随女主对着镜头一个眼神，直接魂穿。和商业女强人的一段对话堪称经典，狐狸最后仍去找神父了，女主却和我们摆一摆手，和我们说了再见。听说这季结束，同款灌装G&T销量翻番。
 ---
