@@ -62,8 +62,8 @@ bgclass: filter-dot
 # startdash url, title, desc img
 startdash:
   - {url: /, title: CYBERPUNK花花世界, desc: 主页, img: /img/startdash/bilibili.jpg}
-  - {url: https://liuyuze.site/about/, title: 关于这个博客, desc: 关于, img: /blogPic/123830.jpg}
-  - {url: http://cpc.people.com.cn/GB/69112/index.html?dt_dapp=1&dt_platform=com.douban.activity.wechat_friends, title: 人民网给领袖献花, desc: 纪念缅怀, img: /img/startdash/lxt.jpg}
+  - {url: https://liuyuze.site/about/, title: 关于这个博客, desc: 关于, img: /img/startdash/about.jpg}
+  #- {url: http://cpc.people.com.cn/GB/69112/index.html?dt_dapp=1&dt_platform=com.douban.activity.wechat_friends, title: 人民网给领袖献花, desc: 纪念缅怀, img: /img/startdash/lxt.jpg}
 
 
 
