@@ -13,7 +13,7 @@ tags:
     - tips
     - 技术
     - 学习笔记
-keywords:GRPC
+keywords: GRPC
 description:
 photos: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/123843.jpg
 ---
@@ -29,7 +29,7 @@ photos: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/123843.jpg
 1. 在Eclipse的workspace中新建一个Maven project。默认选择archetype为Group Id： org.apache.maven.archetypes, artifact Id为： maven-archetype-quickstart。
 2. 设置groupid为：com.yusur, Artifact Id为grpcClient.
 3. 在生成的pom文件中，添加GRPC的依赖。
-4. 在main/src目录下新建文件，命名为```*.proto```，该文件作为运行protobuffer的必要文件，定义了client端与server端使用的接口和通信协议。
+4. 在src/main目录下新建文件夹，命名为```proto```文件夹，在文件夹中新建文件，命名为```*.proto```，该文件作为运行protobuffer的必要文件，定义了client端与server端使用的接口和通信协议。
 5. ```mvn compile```命令可以调用Protobuffer的compiler编译生成相应的java文件。将java文件移动到src文件目录下，自己新建client端或server端文件，正常调用，编译，测试即可。
 6. GRPC也是一个maven工程，在用mvn package打包成jar包后可以通过添加到postgresql项目中，并添加相关引用路径完成。
 7. 至此将GRPC项目引入到JDBC工程中。
