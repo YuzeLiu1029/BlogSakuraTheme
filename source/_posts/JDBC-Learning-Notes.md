@@ -80,12 +80,12 @@ Statement中定义了两种方法用于执行SQL语句。
 * int excuteUpdate(String sql): ```stmt.excuteUpdate;```
 用来执行```Update```,```Insert```,```CREATE TABLE```,```TRUNCATE```
 
-## Resultset
+## ResultSet
 通过调用 Statement 对象的 excuteQuery() 方法创建该对象。
 ResultSet 对象以逻辑表格的形式封装了执行数据库操作的结果集，ResultSet 接口由数据库厂商实现。
 ResultSet 对象维护了一个指向当前数据行的游标，初始的时候，游标在第一行之前，可以通过 ResultSet 对象的 next() 方法移动到下一行。
 
-##总结
+## 总结
 * java.sql.DriverManager用来装载驱动程序，获取数据库连接。
 * java.sql.Connection完成对某一指定数据库的联接
 * java.sql.Statement在一个给定的连接中作为SQL执行声明的容器，他包含了两个重要的子类型　　　　　
@@ -98,8 +98,8 @@ ResultSet 对象维护了一个指向当前数据行的游标，初始的时候�
 
 ```java
 Class.forName("org.postgresql.Driver"); //注册驱动
-Connection conn = DriverManager.getConnection(url, props) //建立连接
-Statement stmt = (Connection) conn.createStatement(); //建立Statement
+Connection conn = DriverManager.getConnection(url, props) //建立连接 (PGConnection)
+Statement stmt = conn.createStatement(); //建立Statement
 stmt.excuteUpdate(sql) //执行建表，增删改，清表操作
 stmt.excuteQuery(sql); //执行查询操作
 stmt.close(); //关闭Statement
