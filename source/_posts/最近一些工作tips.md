@@ -81,3 +81,11 @@ Download and install ConvertToUTF8 package
     5. `hexo deploy` deploy the new blog online.
 ```
 
+# C++ Transform 函数
+
+```c++
+ transform(v1.begin(),v1.end(),v2.begin(),func); 
+//将v1 复制到v2同时先执行func方法 将其改变后放入v2容器中
+```
+
+
