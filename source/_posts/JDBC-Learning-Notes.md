@@ -17,7 +17,7 @@ keywords: PGSQL
 description:
 photos: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/123869.jpg
 ---
-# JDBC API接口介绍
+# JDBC API介绍
 ## JDBC主要API简介
 JDBC API是一系列接口，使程序与数据库连接，执行SQL语句，得到返回结果。
 ![](https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/jdbc1.jpg)
@@ -791,6 +791,7 @@ public int getUpdateCount() throws SQLException {
       return count > Integer.MAX_VALUE ? Statement.SUCCESS_NO_INFO : (int) count;
     }
 }
+
 ```
 
 
