@@ -15,7 +15,7 @@ tags:
     - 学习笔记
 keywords:
 description:
-photos: https://static.2heng.xin/wp-content/uploads//2019/02/wallhaven-672007-1-1024x576.png
+photos: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/123882.jpg
 ---
 # Java 运行报错解决方法
 Error:Maven Resources Compiler: Maven project required for model XXX isn't available. Compilation of Maven projects is supported only if external build is started from an IDE.
