@@ -18,6 +18,16 @@ keywords:
 description:
 photos: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/cyber4.jpg
 ---
+
+<style>
+table, th, td{
+  border: 1px solid #1e1b26;
+}
+th{
+  background: #CCEEFF;
+  color: #FBFBEF;
+}
+</style>
 # JUnit Test Learning Notes
 ## What is JUnit Test
 JUnit是Java编程语言的单元测试框架，用于编写和可重复运行的自动化测试。
@@ -35,7 +45,7 @@ JUnit是Java编程语言的单元测试框架，用于编写和可重复运行�
 ## JUnit Annotation
 
 |Annotation|Description|
-|----------|-------------|
+|:----------:|:-------------:|
 |``@Test``|测试注解，标记一个方法可以作为一个测试用例|
 |``@Before``|Before注解表示，该方法必须在类中的每个测试之前执行,以便执行某些必要的先决条件|
 |``@BeforeClass``|BeforeClass注解指出这是附着在静态方法必须执行一次并在类的所有测试之前，这种情况一般用于测试计算、共享配制方法(如数据库连接)|
