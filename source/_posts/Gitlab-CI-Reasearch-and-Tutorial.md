@@ -146,11 +146,11 @@ yum-config-manager  --add-repo  http://mirrors.aliyun.com/docker-ce/linux/centos
 yum install  -y <FQPN>  # 例如：sudo yum install docker-ce-17.12.0.ce```<br>
 7. 启动docker并加入开机自动启动<br>```systemctl start docker
 systemctl enable docker```<br>
-1. 配置阿里云镜像加速<br>```mkdir  -p  /etc/docker
-vi  /etc/docker/daemon.json```<br>添加以下内容<br> ```{"registry-mirrors": 
+1. ~~配置阿里云镜像加速<br>~~```mkdir  -p  /etc/docker
+vi  /etc/docker/daemon.json```<br>~~添加以下内容~~<br> ```{"registry-mirrors": 
 ["https://5f2jam6c.mirror.aliyuncs.com", 
 "http://hub-mirror.c.163.com"]
-}```<br>
+}```<br>**垃圾镜像不要用，不删留作警示！！！！！**
 1. 重新加载配置文件<br>```systemctl reload  docker```<br>
 2. 重启docker<br>
 ```systemctl restart docker```
