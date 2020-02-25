@@ -159,10 +159,39 @@ vi  /etc/docker/daemon.json```<br>~~添加以下内容~~<br> ```{"registry-mirro
 1. 正在处理依赖关系 docker-ce-selinux >= 17.03.0.ce-1.el7.centos，它被软件包 docker-ce-17.03.0.ce-1.el7.centos.x86_64 需要 软件包 docker-ce-selinux 已经被 docker-ce-cli 取代，但是取代的软件包并未满足需求” 等一大串的问题<br>这时我们需要通过```yum install```安装一个rpm包,通过这个地址我们查看和我们安装docker版本一直的rpm包 https://download.docker.com/linux/centos/7/x86_64/stable/Packages/<br>通过<br>```yum install```<br> https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-selinux-17.03.0.ce-1.el7.centos.noarch.rpm <br>
 2. 运行时```sudo yum install -y yum-utils \
   device-mapper-persistent-data \
-  lvm2```<br>卡死在：``` Loaded plugins: auto-update-debuginfo, fastestmirror, langpacks```<br>这也有可能是因为我之前没有运行```yum update```的缘故，不过也同样可以给出解决办法，就是把这几个插件的config文件修改，不启动即可，具体修改位置如下：
-  ```sudo vim /etc/yum/pluginconf.d/fastestmirror.conf```
-  ```sudo vim /etc/yum/pluginconf.d/auto-update-debuginfo.conf```
-  ```sudo vim /etc/yum/pluginconf.d/langpacks.conf```
+  lvm2```<br>卡死在：``` Loaded plugins: auto-update-debuginfo, fastestmirror, langpacks```<br>这也有可能是因为我之前没有运行```yum update```的缘故，不过也同样可以给出解决办法，就是把这几个插件的config文件修改，不启动即可，具体修改位置如下：<br>```sudo vim /etc/yum/pluginconf.d/fastestmirror.conf```<br>```sudo vim /etc/yum/pluginconf.d/auto-update-debuginfo.conf```<br>```sudo vim /etc/yum/pluginconf.d/langpacks.conf```<br>
+  
+### 缓存问题
+关于maven工程的缓存问题，通过执行docker类型的runner，可以在配置runner的时候作如下处理，可以使得runner复用maven依赖：
+```
+concurrent = 1
+check_interval = 0
+
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "mac_liuyuze_docker"
+  url = "http://192.168.2.114/"
+  token = "cfc078487550e3c6125d45101e2de2"
+  executor = "docker"
+  [runners.custom_build_dir]
+  [runners.docker]
+    tls_verify = false
+    image = "maven:3-jdk-8"
+    privileged = false
+    disable_entrypoint_overwrite = false
+    oom_kill_disable = false
+    disable_cache = false
+    volumes = ["/cache","/root/.m2"]
+    pull_policy = "if-not-present"
+    shm_size = 0
+  [runners.cache]
+    [runners.cache.s3]
+    [runners.cache.gcs]
+```
+
+  
 
 ### 文章参考
 1. https://www.cnblogs.com/tylerzhou/p/10969072.html
