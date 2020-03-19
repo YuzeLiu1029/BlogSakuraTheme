@@ -9,10 +9,12 @@ categories: 技术
 comments: true
 mathjax: true
 date: 2020-02-27 11:19:05
-tags:
+tags: 
+ - IPC
+ - tech
 keywords:
 description:
-photos:
+photos: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/cyber1.jpg
 ---
 Windows下进程间通信的13种方法
 # 进程间通信

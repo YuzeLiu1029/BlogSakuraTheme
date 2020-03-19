@@ -10,9 +10,12 @@ comments: true
 mathjax: true
 date: 2020-02-25 13:14:23
 tags:
+ - tech
 keywords:
+ - process
+ - thread
 description:
-photos:
+photos: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/cyber3.jpg
 ---
 # 进程与线程
 ## 概念

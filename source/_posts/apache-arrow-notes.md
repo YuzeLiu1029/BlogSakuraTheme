@@ -9,10 +9,12 @@ categories: 技术
 comments: true
 mathjax: true
 date: 2020-02-27 13:07:51
-tags:
+tags: 
+ - tech
 keywords:
+ -  apache arrow
 description:
-photos:
+photos: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/cyber2.jpg
 ---
 # Apache Arrow
 Apache Arrow是一个内存分析技术的开发平台。
@@ -63,7 +65,7 @@ null值数量也属于元数据，用64字节的有符号整型数据表示，�
 嵌套式数组有自己独立的null count以及validity bitmap，与它子数组的这两个值是独立分开的。
 #### 1.1.5 举例1
 以一个int32 Array为例，一个数字占4个字节
-![Screen Shot 2020-03-02 at 4.42.57 P](media/Screen%20Shot%202020-03-02%20at%204.42.57%20PM.png)
+![](https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/1.png)
 总结：primitive array型的数据结构由4部分组成，数组长度，null值数量，缓存区，其中缓存区由value buffer以及validity bitmap buffer组成。
 #### 1.1.6 举例2
 如果是不同长度的的列表嵌套式数组(Variable-size List Array)或者不同长度的二进制数组(Variable-size Binary Layout),及每一个数组的值可能由0或多个byte组成，这种情况下，Value Buffer将会拆分成两个部分，offsets buffer以及data buffer。
@@ -72,9 +74,9 @@ the position and length of slot j is computed as:
 ```slot_position = offsets[j]```
 ```slot_length = offsets[j + 1] - offsets[j]  // (for 0 <= j < length)```
 下面以一个List\<int8> array为例：
-![Screen Shot 2020-03-02 at 5.27.25 P](media/Screen%20Shot%202020-03-02%20at%205.27.25%20PM.png)
+![](https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/2.png)
 buffer的组成有validity map, offsetmap,而它的值，其实是之前一个primitive array组成，primitive array的在buffer组成是validity map和value buffer，因为没有空值，validity map省略，只有value map。
-![Screen Shot 2020-03-02 at 6.05.09 P](media/Screen%20Shot%202020-03-02%20at%206.05.09%20PM.png)
+![](https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/3.png)
 ### 1.2 序列化和进程间通信Serialization and Interprocess Communication(IPC)
 序列化的内存列式数据的主要单位是"record batch"。一个record batch就是一组有序的数组(ordered collection of arrays)，这些有序的数组被称作这个”record batch“的”fields“。每一个数组的长度都是相同的，但是数据类型可以不相同。一个record batch的每一个域的名字和数据类型，组成了这个record batch的schema。
 Apache Arrow定义了一个协议用来把这些record batches编码成二进制的payload用于传输，并且可以将这些payload重新构建成record batch而无需复制内存(memory copy)。
@@ -90,7 +92,7 @@ RecordBatch或者DictionaryBatch利用一个单项流式二进制信息(a one-wa
 * 消息体，可选(\<meassage body> optional)
 
 最后的格式如下：
-![Screen Shot 2020-03-02 at 7.32.07 P](media/Screen%20Shot%202020-03-02%20at%207.32.07%20PM.png)
+![](https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/4.png)
 最后整个消息的大小一定要为8字节的倍数。
 其中```metadata_size```包括信息以及padding的大小，```metadata_flatbuffer```包括序列化的信息Flatbuffer值。Flatbuffer值包含下列信息：在message.fbs中定义
 * 版本号
@@ -111,15 +113,15 @@ RecordBatch或者DictionaryBatch利用一个单项流式二进制信息(a one-wa
   * 数据头(data header)，定义为RecordBatch型数据。还包含每一个展开的field的长度以及null的数量。以及每一块内存的偏移量(offset)和长度。
   * 数据体(body),一系列展开的(非嵌套)memory buffers以及padding来确保是8字节的倍数。
   
-![Screen Shot 2020-03-03 at 3.51.04 P](media/Screen%20Shot%202020-03-03%20at%203.51.04%20PM.png)
-![Screen Shot 2020-03-03 at 3.51.11 P](media/Screen%20Shot%202020-03-03%20at%203.51.11%20PM.png)
-![Screen Shot 2020-03-03 at 3.51.18 P](media/Screen%20Shot%202020-03-03%20at%203.51.18%20PM.png)
+![](https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/5.png)
+![](https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/6.png)
+![](https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/7.png)
 
 #### 1.2.2 IPC Streaming Format
 Apache Arrow对IPC有一个流式传输协议。流式传输主要就是一系列遵循上述格式的IPC Message的集合。一般来说，流的开端是Schema类型的IPC Message，这个Schema之后的所有的RecordBatch类型的IPC Message全部都符合该Schema。如果存在有Dictionary-encoded情况，Dictionary类型的IPC Message会和RecordBatch Message都会在数据流中，但是任何用到Dictionary-Key的RecordBatch Message之前，存有该key信息的Dictionary Message一定已经出现了。
 #### 1.2.3 IPC File Format
 IPC File Format主要是用来支持随机访问(Random Access)。文件其实也是由流式格式组成，只是在文件的开头和结尾都有一个字符串```ARROW1(plus padding)```。两个字符串之间的内容和流式传输的格式完全一样。在文件结尾，有一个\<footer>，由Schema Message的副本和内存的偏移及长度组成，内存的偏移及长度用来描述文件中的每一个data block(RecordBatch)。
-![Screen Shot 2020-03-03 at 4.28.38 P](media/Screen%20Shot%202020-03-03%20at%204.28.38%20PM.png)
+![](https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/8.png)
 
 ## 2. Arrow Flight RPC
 Arrow Flight RPC是一个基于Arrow Data高性能的数据服务RPC框架，它也是在gRPC和IPC格式的基础上构建的。
@@ -137,7 +139,7 @@ Flight定义了一系列RPC方法用来上传/下载数据，可以获取一个�
 * 构建或获取一个标识符。
 * Call```DoPut(FlightData)```来上传一个由RecordBacth构成的数据流，在第一跳信息中心需要包含标识符(FlightDescriptor)。
 
-## Question
+## Question && To be continued ...
 Implementation guidelines
 An execution engine (or framework, or UDF executor, or storage engine, etc) can implement only a subset of the Arrow spec and/or extend it given the following constraints:
 
