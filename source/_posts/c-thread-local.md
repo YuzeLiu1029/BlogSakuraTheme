@@ -1,5 +1,5 @@
 ---
-title: set_up_mac
+title: c++_thread_local
 author: Liu Yuze
 avatar: 'https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/avatar.jpg'
 authorLink: liuyuze.site
@@ -8,9 +8,11 @@ authorDesc: 好少年光芒万丈
 categories: 技术
 comments: true
 mathjax: true
-date: 2020-03-15 23:10:27
+date: 2020-12-30 09:04:13
 tags:
-keywords:
+    - C++
+    - tech
+keywords: thread_local
 description:
-photos:
+photos: https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/cyber4.jpg
 ---
